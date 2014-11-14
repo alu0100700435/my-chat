@@ -33,11 +33,18 @@ helpers do
 	end
 end
 
+<<<<<<< HEAD
 get "/" do 
 	if current_user
 		erb :index
 	end
 	erb :login
+=======
+get "/" do
+	@web = "login"
+	erb :login 
+
+>>>>>>> sergio
 end
 
 post "/" do
