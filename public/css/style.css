@@ -23,7 +23,6 @@
 }
 
 .registro{
-	
 	border-radius: 5px;
 	text-align: center;
 	background-color: white;
@@ -37,4 +36,33 @@
 
 .mf{
 	margin-bottom: 2%;
+}
+
+.chat{
+	background: url("/img/login.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.mensajes{
+	background-color: white;
+	height: 75%;
+	width: 75%;
+	margin: 5%;
+
+}
+
+.usuarios{
+	background-color: white;
+	height: 75%;
+	width: 25%;
+	margin: 5%;
+
+}
+
+.input{
+	background-color: white;
+	height: 25%;
+	width: 100%;
+	margin: 5%;
 }

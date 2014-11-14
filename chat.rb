@@ -35,10 +35,13 @@ end
 
 get "/" do 
 	if current_user
+		@web = "index"
 		erb :index
+
+	else
+		@web = "login"
+		erb :login
 	end
-	@web = "login"
-	erb :login
 end
 
 post "/" do
