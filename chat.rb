@@ -5,7 +5,7 @@ require 'data_mapper'
 require 'pp'
 
 
-configure :development do
+configure :development, :test do
 	DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/my_chat.db")
 end
 configure :production do
