@@ -101,7 +101,7 @@ end
 get '/send' do
 	return [404, {}, "Not an ajax request"] unless request.xhr?
 	if params['text'] != ""
-   		chat << "#{current_user.name} : #{params['text']}"
+   		chat << "#{session['user']} : #{params['text']}"
   	end
 	nil
 end
