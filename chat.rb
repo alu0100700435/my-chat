@@ -77,7 +77,8 @@ post "/" do
 		consult = User.first(:name=>name_log)
 
 		if (consult)
-			User.update(:name=>name_log, :active => true)
+			consult.update(:active => true)
+			consult.save
 			session[:user_id] = consult.id
 			session[:user] = consult.name
 		else
@@ -92,7 +93,9 @@ post "/" do
 end
 
 get '/logout' do
-	User.update(:name => current_user.user, :active => false)
+	consult = User.first(:name=>current_user.name)
+	consult.update(:active => false)
+	consult.save
 	session.clear
 
 end
@@ -101,7 +104,7 @@ end
 get '/send' do
 	return [404, {}, "Not an ajax request"] unless request.xhr?
 	if params['text'] != ""
-   		chat << "#{session['user']} : #{params['text']}"
+   		chat << "#{current_user.name} : #{params['text']}"
   	end
 	nil
 end
