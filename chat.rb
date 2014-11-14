@@ -2,7 +2,6 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'rubygems'
 require 'data_mapper'
-require 'erubis'
 require 'pp'
 
 
@@ -35,10 +34,35 @@ helpers do
 end
 
 get "/" do 
-
+	if current_user
+		erb :index
+	end
+	erb :login
 end
 
 post "/" do
+	name_reg = params[:user_reg]
+	name_log= params[:user_log]
+
+	if name_reg 
+		consult = User.first(:name => name)
+
+		if(consult)
+			@existe_user = true
+		else
+	 		
+		end
+	if name_log
+		consult = User.first(:name=>name_log)
+
+		if (consult)
+			User.update(:name=>name_log, :active => true)
+			session[:user_id] = consult.id
+		else
+			@no_existe = true
+		end
+
+	end
 
 end
 
@@ -51,12 +75,16 @@ end
 
 
 get '/logout' do
+	User.update(:name => current_user.user, :active => false)
+	session.clear
 
 end
 
 
 error do
+	erb :index
 end
 
 not_found do
+	erb :index
 end
