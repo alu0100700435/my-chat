@@ -79,6 +79,7 @@ post "/" do
 		if (consult)
 			User.update(:name=>name_log, :active => true)
 			session[:user_id] = consult.id
+			session[:user] = consult.name
 		else
 			puts "error!!!! no existe user"
 			@no_existe = true
@@ -100,7 +101,7 @@ end
 get '/send' do
 	return [404, {}, "Not an ajax request"] unless request.xhr?
 	if params['text'] != ""
-   		chat << "#{current_user.name} : #{params['text']}"
+   		chat << "#{session['user']} : #{params['text']}"
   	end
 	nil
 end
