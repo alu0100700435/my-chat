@@ -33,18 +33,12 @@ helpers do
 	end
 end
 
-<<<<<<< HEAD
 get "/" do 
 	if current_user
 		erb :index
 	end
-	erb :login
-=======
-get "/" do
 	@web = "login"
-	erb :login 
-
->>>>>>> sergio
+	erb :login
 end
 
 post "/" do
@@ -59,6 +53,7 @@ post "/" do
 		else
 	 		
 		end
+	end
 	if name_log
 		consult = User.first(:name=>name_log)
 
@@ -87,11 +82,3 @@ get '/logout' do
 
 end
 
-
-error do
-	erb :index
-end
-
-not_found do
-	erb :index
-end
