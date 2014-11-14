@@ -99,7 +99,9 @@ end
 
 get '/send' do
 	return [404, {}, "Not an ajax request"] unless request.xhr?
-	chat << "#{current_user.name} : #{params['text']}"
+	if params['text'] != ""
+   		chat << "#{current_user.name} : #{params['text']}"
+  	end
 	nil
 end
 
@@ -111,7 +113,9 @@ get '/update' do
 	@last = chat.size
 	erb <<-'HTML', :layout => false
 	  <% @updates.each do |phrase| %>
-	    <%= phrase %> <br />
+	    <%if phrase != "" %> 
+	    	<%= phrase %> <br/>
+	    <%end%>
 	  <% end %>
 	  <span data-last="<%= @last %>"></span>
 	HTML
