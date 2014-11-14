@@ -86,17 +86,33 @@ post "/" do
 
 end
 
-get '/send' do
-end
-
-get '/update' do
-
-end
-
-
 get '/logout' do
 	User.update(:name => current_user.user, :active => false)
 	session.clear
 
 end
+
+
+get '/send' do
+	return [404, {}, "Not an ajax request"] unless request.xhr?
+	chat << "#{current_user.name} : #{params['text']}"
+	nil
+end
+
+get '/update' do
+
+	return [404, {}, "Not an ajax request"] unless request.xhr?
+	@updates = chat[params['last'].to_i..-1] || []
+
+	@last = chat.size
+	erb <<-'HTML', :layout => false
+	  <% @updates.each do |phrase| %>
+	    <%= phrase %> <br />
+	  <% end %>
+	  <span data-last="<%= @last %>"></span>
+	HTML
+
+end
+
+
 
