@@ -35,22 +35,37 @@ end
 
 get "/" do 
 	if current_user
+		puts "inside current user"
 		erb :index
+	else
+
+		puts "inside login"
+		@web = "login"
+		erb :login
 	end
-	@web = "login"
-	erb :login
 end
 
 post "/" do
+
+	puts 'inside post'
 	name_reg = params[:user_reg]
 	name_log= params[:user_log]
 
 	if name_reg 
-		consult = User.first(:name => name)
+		consult = User.first(:name => name_reg)
 
 		if(consult)
+			puts "error!!! existe user"
 			@existe_user = true
+
 		else
+
+			crear = User.create(:name => name_reg)
+			if crear
+				puts "ok"
+			else
+				puts "error al crear user"
+			end
 	 		
 		end
 	end
@@ -61,10 +76,13 @@ post "/" do
 			User.update(:name=>name_log, :active => true)
 			session[:user_id] = consult.id
 		else
+			puts "error!!!! no existe user"
 			@no_existe = true
 		end
 
 	end
+
+	redirect '/'
 
 end
 
