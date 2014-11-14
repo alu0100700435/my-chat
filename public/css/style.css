@@ -38,31 +38,34 @@
 	margin-bottom: 2%;
 }
 
-.chat{
-	background: url("/img/login.jpg");
+.index{
+	
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
 
 .mensajes{
-	background-color: white;
-	height: 75%;
-	width: 75%;
-	margin: 5%;
+	margin-top: 5%;
+	border-radius: 5px;
+	background-color: red;
 
 }
 
 .usuarios{
-	background-color: white;
-	height: 75%;
-	width: 25%;
-	margin: 5%;
-
+	margin-top: 5%;
+	border-radius: 5px;
+	background-color: blue;
+	height: 420px;
 }
 
+.area-t{
+	height: 350px;
+
+}
 .input{
-	background-color: white;
-	height: 25%;
-	width: 100%;
-	margin: 5%;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: pink;
+	height: 50px;
+	
 }

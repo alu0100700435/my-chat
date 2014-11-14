@@ -12,18 +12,25 @@
 		<title>My Own Chat</title>
 	</head>
 	<body class="<%= @web %>">
-		<div class="chat">
-			<div class="mensajes">
-				<div id="chat"></div>
+		<div class="chat col-xs-12 col-sm-12 col-lg-12">
+			<div class="mensajes col-xs-12 col-sm-offset-1 col-sm-8 col-lg-8">
+				
 				<h1>Mensajes</h1>
+				<div id="chat" class="area-t">
+					
+				</div>
 			</div>
 
-			<div class="usuarios">
+			<div class="usuarios col-xs-12 col-sm-2 col-lg-2">
 				<h1>Usuarios</h1>
 			</div>
 
-			<div class="input">
-				input
+			<div class="input col-xs-12 col-sm-offset-1 col-sm-8 col-lg-8">
+				<form class="col-xs-12 col-sm-12 col-lg-12" action="/" method="post">
+					<div class="input-group">
+					  <input id="text" class="mf form-control" placeholder="Mensaje..." autofocus>
+					</div>
+				<br>
 			</div>
 		</div>
 	</body>
