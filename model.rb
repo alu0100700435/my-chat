@@ -5,6 +5,6 @@ class User
 	include DataMapper::Resource
 		property :id, Serial
 		property :name, String
-		property :active, Bool
+		property :active, Boolean, :default => false
 		
 end

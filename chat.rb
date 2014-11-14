@@ -2,7 +2,6 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'rubygems'
 require 'data_mapper'
-require 'erubis'
 require 'pp'
 
 
@@ -34,7 +33,9 @@ helpers do
 	end
 end
 
-get "/" do 
+get "/" do
+	@web = "login"
+	erb :login 
 
 end
 

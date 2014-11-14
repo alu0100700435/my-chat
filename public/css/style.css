@@ -1,14 +1,40 @@
-.cuerpo_logeo{
-	background-image: url("/img/login.jpg");
+.login{
+	background: url("/img/login.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
 .container{
 	height: 25%;
 	width: 25%;
-	background-color: white;
 }
 
 .logeo{
-	margin
+	opacity: 1;
+	border-radius: 5px;
+	text-align: center;
+	background-color: white;
+	padding-top: 1px;
+	padding-left: 10px;
+	padding-right: 5px;
+	padding-bottom: 3%;
+	margin-top: 50%;
 
+}
+
+.registro{
+	
+	border-radius: 5px;
+	text-align: center;
+	background-color: white;
+	padding-top: 3%;
+	padding-left: 10px;
+	padding-right: 5px;
+	padding-bottom: 3%;
+	margin-top: 5%;
+
+}
+
+.mf{
+	margin-bottom: 2%;
 }
