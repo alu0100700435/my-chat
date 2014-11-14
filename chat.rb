@@ -27,6 +27,9 @@ DataMapper.auto_upgrade!
 use Rack::Session::Pool, :expire_after => 2592000
 set :session_secret, '*&(^#234a)'
 
+chat = ['welcome..']
+
+
 helpers do
 	def current_user
 		@current_user ||= User.get(session[:user_id]) if session[:user_id]
