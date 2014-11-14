@@ -38,6 +38,7 @@ end
 
 get "/" do 
 	if current_user
+		@web = "index"
 		puts "inside current user"
 		erb :index
 	else
