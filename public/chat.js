@@ -20,3 +20,17 @@ $('#text').keypress(
     },
   1000);
 })();
+
+(function() {
+  var last = 0;
+  setInterval(
+    function(){
+      $.get('/users',
+        function(response){
+        	$('#users').empty();
+          	$('#users').append(response);
+        }
+      );
+    },
+  1000);
+})();

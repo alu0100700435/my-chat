@@ -127,4 +127,19 @@ get '/update' do
 end
 
 
+get '/users' do
+
+	return [404, {}, "Not an ajax request"] unless request.xhr?
+	@updates = User.all(:active => true)
+
+	erb <<-'HTML', :layout => false
+	  <% @updates.each do |phrase| %>
+	    <%if phrase != "" %> 
+	    	<%= phrase.name %> <br/>
+	    <%end%>
+	  <% end %>
+	HTML
+
+end
+
 
