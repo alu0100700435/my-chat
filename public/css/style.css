@@ -1,6 +1,4 @@
 .cabecera-logo{
-
-	
 	margin-top: 30%;
 	text-align: center;
 }
@@ -45,22 +43,30 @@
 }
 
 .index{
-	
-	background-repeat: no-repeat;
+
+	background-color: #a1c0d8;
 	background-size: 100%;
 }
 
-.mensajes{
-	margin-top: 5%;
-	border-radius: 5px;
-	background-color: red;
+.cabecera{
+	background-color: black;
+	padding-top: 5px;
+	padding-left: 15px;
+	height: 80px;
+}
 
+.mensajes{
+
+	margin-top: 3%;
+	margin-right: 1%;
+	margin-bottom: 1%;
+	border-radius: 5px;
 }
 
 .usuarios{
-	margin-top: 5%;
+	margin-top: 3%;
 	border-radius: 5px;
-	background-color: blue;
+	background-color: white;
 	height: 420px;
 }
 
@@ -71,7 +77,7 @@
 .input{
 	padding: 10px;
 	border-radius: 5px;
-	background-color: pink;
+	background-color: white;
 	height: 50px;
 	
 }
