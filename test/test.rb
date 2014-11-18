@@ -25,11 +25,11 @@ describe "My Own Chat" do
 	end
 	it "Hay un log in" do
 		begin
-		element = @wait.until { @browser.find_element(:id,"LogIn") }
+			element = @wait.until { @browser.find_element(:id,"LogIn") }
 		ensure
-		element = element.text.to_s
-		assert_equal(true, element.include?("Log In"))
-		@browser.quit
+			element = element.text.to_s
+			assert_equal(true, element.include?("Log in"))
+			@browser.quit
 		end
 	end
 
