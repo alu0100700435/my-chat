@@ -6,16 +6,16 @@ gem 'sinatra'
 gem 'data_mapper'
 gem 'sinatra-contrib'
 
-group :development do
+#group :development do
   	gem 'sinatra-contrib'
  	gem "sqlite3"
 	gem "dm-sqlite-adapter"
-end
+#end
 
-group :production do
-	gem "pg"
-	gem "dm-postgres-adapter"
-end
+#group :production do
+#	gem "pg"
+#	gem "dm-postgres-adapter"
+#end
 
 
 group :test do
