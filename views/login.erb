@@ -16,14 +16,14 @@
 		
 		<title>My Own Chat</title>
 	</head>
-	<body class="<%= @web %>">
+	<body class="<%= @web %> col-xs-12">
 		
 	
 
 		<div class="container">
-			<div class="cabecera-logo"> <img src="/img/logo.png" ></div>
+			<div class="cabecera-logo img-responsive col-xs-12 col-sm-offset-4 col-lg-offset-4  col-sm-4 col-lg-4"> <img src="/img/logo.png" ></div>
 
-			<div class="logeo col-xs-12 col-sm-12 col-lg-12">
+			<div class="logeo col-xs-12 col-sm-offset-4 col-lg-offset-4  col-sm-4 col-lg-4">
 				<form class="col-xs-12 col-sm-12 col-lg-12" action="/" method="post">
 
 					<div class="input-group">
@@ -43,7 +43,7 @@
 
 			<br><br>
 
-			<div class="registro col-xs-12 col-sm-12 col-lg-12">
+			<div class="registro col-xs-12 col-sm-offset-4 col-lg-offset-4  col-sm-4 col-lg-4">
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 	  				<div class="panel panel-default">
 	    				<div class="panel-heading" role="tab" id="headingTwo">
@@ -53,7 +53,7 @@
 	        					</a>
 	      					</h4>
 	    				</div>
-	    				<div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+	    				<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 	    					<div class="panel-body">
 								<form class="col-xs-12 col-sm-12 col-lg-12" action="/" method="post">
 									<div class="input-group">
@@ -80,5 +80,8 @@
 				</div>
 	    	</div>
   		</div>
+  		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  		<script src= "/js/bootstrap.min.js"></script>
+		<script src= "/js/bootstrap.js"></script>
 	</body>
 </html>

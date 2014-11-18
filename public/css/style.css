@@ -1,7 +1,5 @@
 .cabecera-logo{
 
-	
-	margin-top: 30%;
 	text-align: center;
 }
 
@@ -13,8 +11,7 @@
 }
 
 .container{
-	height: 25%;
-	width: 25%;
+	margin-top: 10%;
 }
 
 .logeo{
