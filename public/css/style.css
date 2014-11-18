@@ -48,8 +48,20 @@
 	border-bottom: 1px dotted #0066FF;
 	padding-top: 5px;
 	padding-left: 15px;
+	padding-right: 5px;
 	height: 80px;
+	color: white;
 }
+
+.logout a{
+	color: white;
+}
+
+.logout {
+	text-align: right;
+}
+
+.imagen{}
 
 #chat.box{
 	padding:15px;
@@ -92,3 +104,5 @@
 	height: 50px;
 	
 }
+
+

@@ -97,6 +97,7 @@ get '/logout' do
 	consult.update(:active => false)
 	consult.save
 	session.clear
+	redirect '/'
 
 end
 
