@@ -23,12 +23,12 @@ describe "My Own Chat" do
 		@browser.get(@site)
 		@wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
 	end
-	it "I can see signin page" do
+	it "Hay un log in" do
 		begin
 		element = @wait.until { @browser.find_element(:id,"LogIn") }
 		ensure
 		element = element.text.to_s
-		assert_equal(true, element.include?("SIGN IN WITH GOOGLE"))
+		assert_equal(true, element.include?("Log In"))
 		@browser.quit
 		end
 	end
