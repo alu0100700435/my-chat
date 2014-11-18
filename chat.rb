@@ -37,6 +37,7 @@ helpers do
 end
 
 get "/" do 
+	@no_existe = false;
 	if current_user
 		@web = "index"
 		puts "inside current user"
@@ -47,48 +48,79 @@ get "/" do
 		@web = "login"
 		erb :login
 	end
+
 end
 
 post "/" do
 
 	puts 'inside post'
-	name_reg = params[:user_reg]
 	name_log= params[:user_log]
-
-	if name_reg 
-		consult = User.first(:name => name_reg)
-
-		if(consult)
-			puts "error!!! existe user"
-			@existe_user = true
-
-		else
-
-			crear = User.create(:name => name_reg)
-			if crear
-				puts "ok"
-			else
-				puts "error al crear user"
-			end
-	 		
-		end
-	end
+	@no_existe = false;
+	@existe_user = false;
+	
 	if name_log
-		consult = User.first(:name=>name_log)
+
+		pass = params[:pass_log].to_i(32)
+		consult = User.first(:name=>name_log, :pass => pass)
 
 		if (consult)
 			consult.update(:active => true)
 			consult.save
 			session[:user_id] = consult.id
 			session[:user] = consult.name
+
+			redirect '/'
 		else
-			puts "error!!!! no existe user"
+			puts "error!!!! contraseña o usuario erroneo"
 			@no_existe = true
+
+			@web = "login"
+			erb :login
 		end
 
 	end
 
-	redirect '/'
+end
+
+post "/registro" do
+
+	puts 'inside post'
+	name_reg = params[:user_reg]
+	@no_existe = false;
+	@existe_user = false;
+
+	if name_reg 
+
+		consult = User.first(:name => name_reg)
+
+		if(consult)
+			puts "error!!! existe user"
+			@existe_user = true
+
+			@web = "login"
+			erb :login
+
+		else
+			pass = params[:pass_reg].to_i(32)
+			crear = User.create(:name => name_reg, :pass => pass )
+			if crear
+				puts "ok"
+				crear.update(:active => true)
+				crear.save
+				session[:user_id] = crear.id
+				session[:user] = crear.name
+
+				redirect '/'
+
+			else
+				puts "error al crear user"
+
+				@web = "login"
+				erb :login
+			end
+	 		
+		end
+	end
 
 end
 
