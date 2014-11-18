@@ -28,8 +28,6 @@
 .registro{
 	border-radius: 5px;
 	text-align: center;
-	background-color: white;
-
 	padding: 0%;
 
 	margin-top: 3%;
@@ -41,25 +39,27 @@
 }
 
 .index{
-
-	background-color: #a1c0d8;
+	background-color: snow;
 	background-size: 100%;
 }
 
 .cabecera{
-	background-color: black;
+	background-color: #a1c0d8;
+	border-bottom: 1px dotted #0066FF;
 	padding-top: 5px;
 	padding-left: 15px;
 	height: 80px;
 }
 
 #chat.box{
+	padding:15px;
 	height: 350px;
 	overflow-y: scroll; 
 }
 
 #users.box{
 	height: 350px;
+	padding-top: 15px;
 	overflow-y: scroll; 
 }
 
@@ -76,6 +76,11 @@
 	border-radius: 5px;
 }
 
+.user_n{
+	font-style: italic;
+	font-weight: bold;
+	text-align: center;
+}
 .area-t{
 	height: 350px;
 

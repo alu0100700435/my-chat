@@ -135,7 +135,7 @@ get '/users' do
 	erb <<-'HTML', :layout => false
 	  <% @updates.each do |phrase| %>
 	    <%if phrase != "" %> 
-	    	<%= phrase.name %> <br/>
+	    	<p class="user_n"><%= phrase.name %></p>
 	    <%end%>
 	  <% end %>
 	HTML
