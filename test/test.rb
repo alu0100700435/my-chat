@@ -49,7 +49,26 @@ describe "My Own Chat" do
 		element.submit
 
 		assert_equal(true, element.include?("welcome..."))
+		@browser.quit
 		
 	end
+
+	it "Las contraseñas deben ser iguales" do
+		@browser.get(@site)
+		@browser.manage.timeouts.implicit_wait = 5
+
+		element = @browser.find_element(:id,"username")
+		element.send_keys("user1")
+		element = @browser.find_element(:id,"pass1")
+		element.send_keys("12345")
+		element = @browser.find_element(:id,"pass2")
+		element.send_keys("123456")
+
+		assert_equal(true, element.include?("Las contraseñas deben ser iguales"))
+		@browser.quit
+	end
+
+	
+
 
 end
