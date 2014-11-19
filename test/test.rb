@@ -68,7 +68,25 @@ describe "My Own Chat" do
 		@browser.quit
 	end
 
-	
+	it "El usuario puede enviar mensajes" do
+		@browser.get(@site)
+		@browser.manage.timeouts.implicit_wait = 5
+
+		element = @browser.find_element(:id,"username")
+		element.send_keys("user1")
+		element = @browser.find_element(:id,"pass1")
+		element.send_keys("123456")
+		element = @browser.find_element(:id,"pass2")
+		element.send_keys("123456")
+		element.submit
+
+		element = @browser.find_element(:id,"text")
+		element.send_keys("hola mundo")
+		element.send_keys:return
+
+		assert_equal(true, element.include?("hola mundo"))
+		@browser.quit
+	end
 
 
 end
