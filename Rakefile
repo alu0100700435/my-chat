@@ -1,4 +1,4 @@
-task :default => :test
+task :default => :spec
 
 desc "Run test"
 task :test do
@@ -10,5 +10,9 @@ desc "Run server"
       sh "rackup"
 end
 
+desc "run spec"
+task :spec do
+sh "bundle exec rspec spec"
+end
 
 
