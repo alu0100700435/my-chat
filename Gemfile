@@ -10,6 +10,7 @@ group :development do
   	gem 'sinatra-contrib'
  	gem "sqlite3"
 	gem "dm-sqlite-adapter"
+	gem 'coveralls', require: false
 end
 
 group :production do
@@ -23,4 +24,5 @@ group :test do
 	gem "dm-sqlite-adapter"
     gem "rack-test"
     gem "rake"
+    gem 'coveralls', require: false
 end

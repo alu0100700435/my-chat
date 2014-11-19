@@ -6,6 +6,9 @@ require 'minitest/autorun'
 require 'rack/test'
 require 'selenium-webdriver'
 require 'rubygems'
+require 'coveralls'
+Coveralls.wear!
+
 include Rack::Test::Methods
 
 def app
