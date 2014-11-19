@@ -36,4 +36,20 @@ describe "My Own Chat" do
 		end
 	end
 
+	it "El usuario se puede registrar" do
+		@browser.get(@site)
+		@browser.manage.timeouts.implicit_wait = 5
+
+		element = @browser.find_element(:id,"username")
+		element.send_keys("user1")
+		element = @browser.find_element(:id,"pass1")
+		element.send_keys("123456")
+		element = @browser.find_element(:id,"pass2")
+		element.send_keys("123456")
+		element.submit
+
+		assert_equal(true, element.include?("welcome..."))
+		
+	end
+
 end
