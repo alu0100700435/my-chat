@@ -20,6 +20,7 @@ end
 
 
 group :test do
+	gem 'selenium-webdriver'
 	gem "sqlite3"
 	gem "dm-sqlite-adapter"
     gem "rack-test"

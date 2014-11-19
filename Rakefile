@@ -1,7 +1,14 @@
-task :default => :server
+task :default => :test
 
-desc "run the chat server"
-task :server do
-  sh "bundle exec rackup"
+desc "Run test"
+task :test do
+	sh "ruby test/test.rb"
 end
+
+desc "Run server"
+    task :server do
+      sh "rackup"
+end
+
+
 
