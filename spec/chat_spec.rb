@@ -20,12 +20,11 @@ end
 describe "My Own Chat" do
 	before :each do
 		@browser = Selenium::WebDriver.for :firefox
-		@site = 'http://my-own-chat.herokuapp.com/'
+		@site = 'https://my-own-chat.herokuapp.com/'
 		if (ARGV[0].to_s == "local")
 			@site = 'localhost:9292/'
 		end
 		@browser.get(@site)
-		@wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
 	end
 	it "Hay un log in" do
 		@browser.manage.timeouts.implicit_wait = 5
