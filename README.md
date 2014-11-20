@@ -1,4 +1,4 @@
-MyChat con JQuery, Ajax y Sinatra
+MyChat con JQuery, Ajax y Sinatra ![travis](https://travis-ci.org/alu0100700435/my-chat.svg)
 =============
 Sistemas y Tecnologías web
 ---------------------------
