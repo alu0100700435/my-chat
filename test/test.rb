@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+require 'coveralls'
+Coveralls.wear!
 ENV['RACK_ENV'] = 'test'
 require_relative '../chat.rb'
 require 'test/unit'
@@ -6,8 +8,6 @@ require 'minitest/autorun'
 require 'rack/test'
 require 'selenium-webdriver'
 require 'rubygems'
-require 'coveralls'
-Coveralls.wear!
 
 include Rack::Test::Methods
 
@@ -48,7 +48,7 @@ describe "My Own Chat" do
 		element.send_keys("123456")
 		element.submit
 
-		assert_equal(true, element.include?("welcome..."))
+		assert_equal("Welcome...", @browser.find_element(:id,"saludo").text)
 		@browser.quit
 		
 	end

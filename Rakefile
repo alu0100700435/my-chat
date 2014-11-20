@@ -1,18 +1,13 @@
-task :default => :spec
-
-desc "Run test"
-task :test do
-	sh "ruby test/test.rb"
+task(:default) do
+    require_relative 'test/test'
 end
+desc "run the tests"
+    task :test => :default
 
 desc "Run server"
     task :server do
       sh "rackup"
 end
 
-desc "run spec"
-task :spec do
-sh "bundle exec rspec spec"
-end
 
 
