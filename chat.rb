@@ -134,7 +134,7 @@ post "/registro" do
 		end
 	else
 		
-		puts "error!!! existe user"
+		puts "datos no introducidos o mal"
 		@existe_user = true
 
 		@web = "login"
