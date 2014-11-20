@@ -31,12 +31,12 @@
 
 					<div class="input-group">
 					  <span class="input-group-addon">User</span>
-					  <input type="text" name="user_log" value="" class="mf form-control" placeholder="Nombre de usuario..." autofocus>
+					  <input type="text" name="user_log" value="" class="mf form-control" id="nom_l" placeholder="Nombre de usuario..." autofocus>
 					</div>
 					<br>
 					<div class="input-group">
 						<span class="input-group-addon">Pass</span>
-					  <input type="password" name="pass_log" value="" class="mf form-control" placeholder="Contraseña..." autofocus>
+					  <input type="password" name="pass_log" value="" class="mf form-control" id="pass_l" placeholder="Contraseña..." autofocus>
 					</div>	
 					<br>
 					<button type="submit" id="LogIn" class="btn btn-default">Log in</button>
@@ -59,7 +59,7 @@
 	    				<div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
 	    					<div class="panel-body">
 	    						<% if @existe_user == true %>
-	    							<p class="mensaje-user"> El  usuario ya existe</p>
+	    							<p class="mensaje-user"> El  usuario ya existe o contraseñas no coincidentes</p>
 	    						<% end %>
 								<form class="col-xs-12 col-sm-12 col-lg-12" action="/registro" method="post">
 									<div class="input-group">

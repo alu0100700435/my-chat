@@ -7,22 +7,32 @@ require 'pp'
 
 configure :development, :test do
 	DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/my_chat.db")
+	DataMapper::Logger.new($stdout, :debug)
+	DataMapper::Model.raise_on_save_failure = true 
+
+	require_relative 'model'
+
+	DataMapper.finalize
+
+	DataMapper.auto_migrate!
+	#DataMapper.auto_upgrade!
 end
 configure :production do
 	DataMapper.setup(:default, ENV['DATABASE_URL'])
+	DataMapper::Logger.new($stdout, :debug)
+	DataMapper::Model.raise_on_save_failure = true 
+
+	require_relative 'model'
+
+	DataMapper.finalize
+
+	#DataMapper.auto_migrate!
+	DataMapper.auto_upgrade!
 end
 
 
 
-DataMapper::Logger.new($stdout, :debug)
-DataMapper::Model.raise_on_save_failure = true 
 
-require_relative 'model'
-
-DataMapper.finalize
-
-#DataMapper.auto_migrate!
-DataMapper.auto_upgrade!
 
 use Rack::Session::Pool, :expire_after => 2592000
 set :session_secret, '*&(^#234a)'
@@ -86,10 +96,12 @@ post "/registro" do
 
 	puts 'inside post'
 	name_reg = params[:user_reg]
+	pass = params[:pass_reg]
+	pass2 = params[:pass2_reg]
 	@no_existe = false;
 	@existe_user = false;
 
-	if name_reg 
+	if name_reg && (pass == pass2)
 
 		consult = User.first(:name => name_reg)
 
@@ -101,7 +113,7 @@ post "/registro" do
 			erb :login
 
 		else
-			pass = params[:pass_reg].to_i(32)
+			pass = pass.to_i(32)
 			crear = User.create(:name => name_reg, :pass => pass )
 			if crear
 				puts "ok"
@@ -120,6 +132,12 @@ post "/registro" do
 			end
 	 		
 		end
+	else
+		puts "error!!! existe user"
+		@existe_user = true
+
+		@web = "login"
+		erb :login
 	end
 
 end
@@ -137,7 +155,7 @@ end
 get '/send' do
 	return [404, {}, "Not an ajax request"] unless request.xhr?
 	if params['text'] != ""
-   		chat << "#{current_user.name} : #{params['text']}"
+   		chat << "<strong id ='#{current_user.name}'>#{current_user.name} </strong>  : #{params['text']}"
   	end
 	nil
 end

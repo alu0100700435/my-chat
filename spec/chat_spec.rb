@@ -16,20 +16,26 @@ def app
 	Sinatra::Application
 end
 
-
-describe "My Own Chat" do
-	before :each do
-		@browser = Selenium::WebDriver.for :firefox
-		@site = 'https://my-own-chat.herokuapp.com/'
-		if (ARGV[0].to_s == "local")
-			@site = 'localhost:9292/'
-		end
-		@browser.get(@site)
-	end
-	it "Hay un log in" do
-		@browser.manage.timeouts.implicit_wait = 5
-		expect(@browser.find_element(:id,"LogIn").text).to eq("Log in")
-		@browser.quit
+describe " My own chat - funcionalidades de las rutas" do
+	it "/update" do
+		get '/update'
+		expect(last_response.body).to eq("Not an ajax request")
 	end
 
+	it "/send" do
+		get '/send'
+		expect(last_response.body).to eq("Not an ajax request")
+	end
+
+	it "get /" do
+		get '/'
+		expect(last_response).to be_ok
+	end
+
+	it "post en la raiz" do
+		post '/'
+		expect(last_response).to be_ok
+	end
+
+	
 end
