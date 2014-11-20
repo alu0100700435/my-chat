@@ -26,7 +26,7 @@ Hay dos formas posibles de ver el funcionamiento de la aplicación, una mediante
     
 2. Visualización en local
 
-    Primero se ha de clonar el repositorio de github [mytinyurl], de la siguiente forma: 
+    Primero se ha de clonar el repositorio de github [my-chat], de la siguiente forma: 
     
     ```sh
     user@ubuntu-hp:~$ git clone git@github.com:alu0100700435/my-chat
@@ -45,6 +45,6 @@ Hay dos formas posibles de ver el funcionamiento de la aplicación, una mediante
 
     
 [aquí]:http://my-own-chat.herokuapp.com
-[mytinyurl]:https://github.com/alu0100700435/my-chat
+[my-chat]:https://github.com/alu0100700435/my-chat
 
 
