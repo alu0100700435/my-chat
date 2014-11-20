@@ -41,7 +41,7 @@ Hay dos formas posibles de ver el funcionamiento de la aplicación, una mediante
     
     Una vez en ejecución, abre el navegador y escribe en la barra de direcciones *localhost:9292* y accederás a la web de la aplicación:
     
-    
+    ![ejemplo navegador](https://raw.githubusercontent.com/alu0100700435/my-chat/master/public/img/ejemplo.png)
 
     
 [aquí]:http://my-own-chat.herokuapp.com
