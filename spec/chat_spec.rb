@@ -32,6 +32,8 @@ describe " My own chat - funcionalidades de las rutas" do
 		expect(last_response).to be_ok
 	end
 
+
+
 	it "get /users" do
 		get '/users'
 		expect(last_response.body).to eq("Not an ajax request")
@@ -53,13 +55,39 @@ describe " My own chat - funcionalidades de las rutas" do
 	it "post de registro" do
 		puts "post /reg"
 		post '/registro' , :user_reg => "raquel", :pass_reg => "123", :pass2_reg => "123"
-		last_response.headers['Content-Length']
+		last_response.body['Welcome...']
+	end
+
+
+
+	it "post de registro erroneo - malas claves" do
+		puts "post /reg"
+		post '/registro' , :user_reg => "raquel", :pass_reg => "123", :pass2_reg => "1234"
+		last_response.body['El  usuario ya existe o contraseñas no coincidentes']
+	end
+
+	it "post de registro erroneo - usuario existente" do
+		puts "post /reg"
+		post '/registro' , :user_reg => "raquel", :pass_reg => "12344", :pass2_reg => "12344"
+		last_response.body['El  usuario ya existe o contraseñas no coincidentes']
 	end
 
 	it "post / con usuario" do
 		puts "post /"
 		post '/' , :user_log => "raquel", :pass_log => "123"
-		last_response.headers['Content-Length']
+		last_response.body['Welcome...']
+	end
+
+	it "get / con current user" do
+		post '/' , :user_log => "raquel", :pass_log => "123"
+		get '/'
+		last_response.body['Welcome...']
+	end
+
+	it "post / con usuario y mala contraseña" do
+		puts "post /"
+		post '/' , :user_log => "raquel", :pass_log => "123sgadgagag"
+		last_response.body['Usuario o contraseña erronea']
 	end
 
 
@@ -67,13 +95,13 @@ describe " My own chat - funcionalidades de las rutas" do
 		puts "get /logout"
 		post '/' , :user_log => "raquel", :pass_log => "123"
 		get '/logout', :name => "raquel"
-		last_response.headers['Content-Length']
+		last_response.body['Log In']
 	end
 
 	it "/send con http request" do
 		post '/' , :user_log => "raquel", :pass_log => "123"
 		get '/send', {}, {"HTTP_X_REQUESTED_WITH" => "XMLHttpRequest"}
-		expect(last_response.body).to eq("")
+		last_response.body['Welcome...']
 	end
 
 	it "/update con http request" do
