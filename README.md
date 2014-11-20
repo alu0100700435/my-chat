@@ -34,7 +34,7 @@ Hay dos formas posibles de ver el funcionamiento de la aplicación, una mediante
     Una vez clonado el repositorio, ejecuta bundler:
     
     ```sh
-    user@ubuntu-hp:~/mytinyur$ bundle install
+    user@ubuntu-hp:~/my-chat$ bundle install
     ```
     
     Una vez hecho todo lo anterior, procede a ejecutar *rake server*, y por defecto se empezará a ejecutar.
