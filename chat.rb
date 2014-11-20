@@ -133,6 +133,7 @@ post "/registro" do
 	 		
 		end
 	else
+		
 		puts "error!!! existe user"
 		@existe_user = true
 
