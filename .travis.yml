@@ -1,6 +1,6 @@
 language: ruby
 rvm: 2.1.2
-script: bundle exec rspec spec
+script: bundle exec rake
 before_install:
 - sudo apt-get update
 - sudo apt-get install libpq-dev
