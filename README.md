@@ -1,4 +1,4 @@
-MyChat con JQuery, Ajax y Sinatra ![travis](https://travis-ci.org/alu0100700435/my-chat.svg) [![Coverage Status](https://coveralls.io/repos/alu0100700435/my-chat/badge.png?branch=master)](https://coveralls.io/r/alu0100700435/my-chat?branch=master)
+MyChat con JQuery, Ajax y Sinatra [![Build Status](https://travis-ci.org/alu0100700435/my-chat.svg?branch=master)](https://travis-ci.org/alu0100700435/my-chat) [![Coverage Status](https://coveralls.io/repos/alu0100700435/my-chat/badge.png?branch=master)](https://coveralls.io/r/alu0100700435/my-chat?branch=master)
 ===========================
 Sistemas y Tecnologías web
 ---------------------------
